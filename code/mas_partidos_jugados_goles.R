@@ -14,7 +14,9 @@ caption <- "**Data: Wikipedia (16.02.2025) - @SaenzJohanS - GitHub: SebasSaenz**
 
 
 df %>% 
-  mutate(ratio = Goles/Partidos) %>% 
+  mutate(ratio = Goles/Partidos,
+         Posición = factor(Posición,
+                           levels = c("Defensa", "Mediocampista", "Delantero"))) %>% 
   ggplot(aes(x = ratio,
          y = fct_reorder(Nombre, ratio),
          fill = Posición)) +
