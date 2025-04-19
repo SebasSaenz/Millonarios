@@ -1,7 +1,10 @@
+# Load library -----------------------------------------------------------------
 library(tidyverse)
 library(geofacet)
 library(ggh4x)
 library(ggtext)
+
+# Load data adn set titles -----------------------------------------------------
 
 df <- read_tsv("data/rendimiento_gonzales.txt")
 
@@ -11,6 +14,7 @@ subtitle <- "Con 27 puntos en 15 fechas, el Millonarios de González alcanza un 
 
 caption <- "**Data: Wikipedia (19.04.2025) - @SaenzJohanS - GitHub: SebasSaenz**"
 
+# Wrangle data -----------------------------------------------------------------
 
 pivot_longer <- df %>% 
   pivot_longer(-fecha,
@@ -19,7 +23,7 @@ pivot_longer <- df %>%
   filter(fecha <= 15) %>% 
   mutate(gozales = "2025_1" == torneo)
 
-
+# Make plot --------------------------------------------------------------------
 pivot_longer %>% 
   ggplot(aes(x=fecha, y=puntos, group=torneo, color=gozales)) +
   geom_line() +
@@ -66,47 +70,8 @@ pivot_longer %>%
         plot.subtitle = element_markdown(size = 8),
         plot.caption = element_markdown(size = 7, hjust = 0))
 
-
+# save plot --------------------------------------------------------------------
 ggsave(filename = "plots/rendimiento_gonzales.png",
        width = 5,
        height = 4,
        dpi = 300)
-
-
-pivot_longer %>% 
-  ggplot(aes(x = fecha)) +
-  # One line for Cat rescues
-  geom_line(aes(y = `2024_1`), color = "blue") +
-  # Another line for Not_Cat rescues
-  geom_line(aes(y = `2025_1`), color = "purple") +
-  # stat_difference() from ggh4x package applies the conditional fill
-  # based on which of Not_Cat and Cat is larger.
-  stat_difference(aes(ymin = `2024_1`, ymax = `2025_1`), alpha = 0.3) +
-  theme_minimal()
-
-
-
-animal_rescues <- readr::read_csv(
-  "https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-06-29/animal_rescues.csv"
-) %>% 
-  # Capitalize the type of animal
-  mutate(animal_group_parent = str_to_sentence(animal_group_parent))
-
-borough_names <- gb_london_boroughs_grid %>% 
-  select(borough_code = code_ons, name)
-
-rescues_borough <- animal_rescues %>% 
-  # Keep rescues that happeend before 2021
-  filter(cal_year < 2021) %>% 
-  # We're interested on whether it is a Cat or another type of animal.
-  mutate(animal_group_parent = if_else(animal_group_parent == "Cat", "Cat", "Not_Cat")) %>% 
-  # Count the number of rescues per year, borough, and type of animal
-  count(cal_year, borough_code, animal_group_parent) %>% 
-  # Make the dataset wider.
-  # * One column for the number of cat rescues
-  # * Another column for the number of other animal rescues
-  pivot_wider(names_from = animal_group_parent, values_from = n) %>% 
-  # Merge the data with the info about the grid layout
-  left_join(borough_names) %>% 
-  # Drop entries with missing name
-  filter(!is.na(name)) 
