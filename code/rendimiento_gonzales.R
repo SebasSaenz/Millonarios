@@ -20,7 +20,7 @@ pivot_longer <- df %>%
   pivot_longer(-fecha,
                names_to = "torneo",
                values_to = "puntos") %>% 
-  filter(fecha <= 15) %>% 
+  filter(fecha <= 16) %>% 
   mutate(gozales = "2025_1" == torneo)
 
 # Make plot --------------------------------------------------------------------
