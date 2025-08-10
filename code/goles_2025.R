@@ -25,7 +25,7 @@ primero <- df %>%
     linetype = 2
   ) +
   geom_point(shape = 21, size = 5, color = "black") +
-  scale_y_continuous(limits = c(1, 17), breaks = seq(1, 17, 1)) +
+  scale_y_continuous(limits = c(1, 20), breaks = seq(1, 20, 1)) +
   scale_x_continuous(limits = c(0, 45), breaks = seq(0, 45, 5)) +
   scale_fill_manual(values = c('#0570b0', '#bdc9e1')) +
   labs(x = NULL, y = NULL) +
@@ -62,7 +62,7 @@ segundo <- df %>%
     linetype = 2
   ) +
   geom_point(shape = 21, size = 5, color = "black") +
-  scale_y_continuous(limits = c(1, 17), breaks = seq(1, 17, 1)) +
+  scale_y_continuous(limits = c(1, 20), breaks = seq(1, 20, 1)) +
   scale_x_continuous(limits = c(45, 90), breaks = seq(45, 90, 5)) +
   scale_fill_manual(values = c('#0570b0', '#bdc9e1')) +
   labs(x = NULL, y = NULL) +
