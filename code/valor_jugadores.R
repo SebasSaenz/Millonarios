@@ -49,7 +49,7 @@ df_clean %>%
   geom_hline(yintercept = 0, color = "black", linewidth = 0.3) +
   annotate(
     geom = "text",
-    x = 0.57,
+    x = 0.6,
     y = 825,
     label = "mil €",
     size = 3,
@@ -62,7 +62,7 @@ df_clean %>%
     x = NULL,
     y = NULL,
     title = "¿Refuerzos o contrataciones?",
-    subtitle = "De los jugadores que se unieron a Millonarios para la temporada<br> 2025-II, solo uno aumentó su valor en el último año, mientras<br> que el resto lo mantuvo o lo perdió.",
+    subtitle = "De los jugadores que se unieron a Millonarios para la<br> temporada 2025-II, solo uno aumentó su valor en el<br> último año, mientras que el resto lo mantuvo o lo  perdió.",
     caption = "**Data: Transfermarkt (10.08.2025) - @SaenzJohanS - GitHub: SebasSaenz**<br>*Los valores mas cercanos a 06.2024 y 06.2025 fueron usados"
   ) +
   theme_minimal() +
@@ -70,8 +70,8 @@ df_clean %>%
     plot.background = element_rect(color = "white", fill = "white"),
     text = element_text(family = "optima"),
     plot.title = element_markdown(face = "bold", size = 16, hjust = 0),
-    plot.subtitle = element_markdown(size = 9, hjust = 0, halign = 0),
-    plot.caption = element_markdown(size = 7, hjust = 0),
+    plot.subtitle = element_markdown(size = 9, hjust = 1, halign = 0),
+    plot.caption = element_markdown(size = 6.5, hjust = 0),
     panel.grid.major.x = element_blank(),
     panel.grid.minor.y = element_blank(),
     panel.grid.major.y = element_line(linetype = 2),
@@ -84,4 +84,4 @@ df_clean %>%
     )
   )
 
-ggsave("plots/contrataciones_2025.png", width = 4, height = 4, dpi = 350)
+ggsave("plots/contrataciones_2025.png", width = 3.5, height = 4, dpi = 350)
