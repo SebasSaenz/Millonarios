@@ -35,8 +35,8 @@ df %>%
     x = "Minutos x convocatoria",
     y = NULL,
     title = "Millonarios: refuerzos para la banca",
-    subtitle = "La mayoria de los refuerzos del 2025 jugaron en promedio menos de<br> 45 minutos cada vez que fueron convocados para la liga<br> 2025-II, incluso algunos de ellos jugaron menos de<br> 30 minutos.",
-    caption = "**Data: Transfermarkt (30.10.2025) - @SaenzJohanS - GitHub: SebasSaenz**<br>Los numbero en parentesis representa las convocatorias"
+    subtitle = "La mayoría de los refuerzos del 2025 jugaron, en promedio,<br> menos de 45 minutos cada vez que fueron convocados para<br> la liga 2025-II; incluso algunos jugaron menos de 30 minutos.",
+    caption = "**Data: Transfermarkt (30.10.2025) - @SaenzJohanS - GitHub: SebasSaenz**<br>Los números en paréntesis representa las convocatorias"
   ) +
   theme_minimal() +
   theme(
@@ -61,7 +61,7 @@ df %>%
 # Save plot --------------------------------------------------------------------
 ggsave(
   filename = "plots/minutos_jugados_2025.png",
-  width = 4,
+  width = 4.5,
   height = 6,
   dpi = 300
 )
