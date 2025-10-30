@@ -13,7 +13,7 @@ df %>%
     min_convo = minutos / convocado,
     median_min = round(mean(min_convo)),
     difference = min_convo - median_min,
-    refuerzo = if_else(is.na(refuerzo), FALSE, refuerzo)
+    refuerzo = if_else(is.na(refuerzo), "No refuerzo", "Refuerzo")
   ) %>%
   ggplot(aes(x = min_convo, y = fct_reorder(nombre, min_convo))) +
   geom_col(
@@ -49,19 +49,22 @@ df %>%
     axis.text.y = element_blank(),
     axis.ticks.y = element_blank(),
     axis.text.x = element_markdown(colour = "black"),
+    axis.title.x = element_markdown(face = "bold"),
     panel.grid.major.y = element_blank(),
     panel.grid.minor.x = element_blank(),
     panel.grid.major.x = element_line(linetype = 2),
-    legend.position = "none",
     plot.title = element_markdown(size = 17, face = "bold"),
     plot.subtitle = element_markdown(family = "Optima"),
-    plot.caption = element_markdown(hjust = 0)
+    plot.caption = element_markdown(hjust = 0),
+    legend.position = c(0.85, 0.1),
+    legend.title = element_blank(),
+    legend.key.size = unit(1, "line")
   )
 
 # Save plot --------------------------------------------------------------------
 ggsave(
   filename = "plots/minutos_jugados_2025.png",
-  width = 4.5,
+  width = 4.3,
   height = 6,
   dpi = 300
 )
