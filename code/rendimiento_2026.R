@@ -34,10 +34,26 @@ p <- rendimiento %>%
   scale_x_continuous(breaks = seq(1, 7, 1)) +
   scale_y_continuous(breaks = seq(0, 100, 20)) +
   scale_color_manual(values = c("blue", "#404040", "#bababa")) +
-  labs(x = "Fecha", y = "Rendimiento (%)") +
+  labs(
+    x = "Fecha",
+    y = "Rendimiento (%)",
+    title = "Rendimiento de Millonarios comparado<br>al primero y octavo en cada fecha (2026-I)",
+    caption = "<b>Data:</b> Tablas José O. Ascencio @josasc<br><b>Code:</b> @SaenzJohanS - GitHub: SebasSaenz"
+  ) +
   theme_bw() +
-  theme(legend.title = element_blank())
+  theme(
+    text = element_text(family = "optima"),
+    legend.title = element_blank(),
+    plot.title = element_markdown(family = "optima", face = "bold"),
+    plot.caption = element_markdown(family = "optima", hjust = 0)
+  )
 
+ggsave(
+  filename = "plots/rendimiento_2026-I.png",
+  width = 5,
+  height = 3.5,
+  dpi = 300
+)
 # Responsive plotly
 p_int <- ggplotly(p, tooltip = "text") %>%
   style(hoverinfo = "text") %>%
