@@ -31,7 +31,7 @@ p <- rendimiento %>%
   )) +
   geom_line() +
   geom_point() +
-  scale_x_continuous(breaks = seq(1, 9, 1)) +
+  scale_x_continuous(breaks = seq(1, 10, 1)) +
   scale_y_continuous(breaks = seq(0, 100, 20)) +
   scale_color_manual(values = c("blue", "#404040", "#bababa")) +
   labs(
