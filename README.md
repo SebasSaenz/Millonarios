@@ -12,7 +12,7 @@ Graficas y estadisticas del club de futbol mas grande de Colombia.
 
 Millonarios tiene una larga lista de leyendas y orgnaizarlas es un gran tarea.
 
-![](plots/100_mejores.png){width="50%"}
+![](plots/100_mejores.png){width="5cm"}
 
 ### **Gol de Antología**
 
@@ -50,4 +50,4 @@ La mayoría de refuerzos de Millonarios sumaron mas minutos en la banca que en l
 
 Para el segundo semestre de 2025 Millonarios solo contrato refuerzos a la baja.
 
-![](plots/contrataciones_2025.png){width="50%"}
+![](plots/contrataciones_2025.png){width="5cm"}
