@@ -12,7 +12,7 @@ Graficas y estadisticas del club de futbol mas grande de Colombia.
 
 Millonarios tiene una larga lista de leyendas y orgnaizarlas es un gran tarea.
 
-![](plots/100_mejores.png){width="350"}
+![](plots/100_mejores.png){width="50%"}
 
 ### **Gol de Antología**
 
@@ -38,7 +38,7 @@ Radamel Falcao esta en la pelea por ser el goleador historico colombiano.
 
 Alvaro Montero es lejos el mejor arquero, pero suma pocos minutos en la selección Colombia.
 
-![](plots/arqueros_selecion.png){width="350"}
+![](plots/arqueros_selecion.png){width="50%"}
 
 ### **Minutos jugados por convocatoria**
 
@@ -50,4 +50,4 @@ La mayoría de refuerzos de Millonarios sumaron mas minutos en la banca que en l
 
 Para el segundo semestre de 2025 Millonarios solo contrato refuerzos a la baja.
 
-<img src="plots/contrataciones_2025.png" width="50%"/>
+![](plots/contrataciones_2025.png){width="50%"}
